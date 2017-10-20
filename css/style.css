@@ -1,0 +1,21 @@
+.fc_white{color:white;}
+.ff_YaHei{font-family: Microsoft YaHei ! important;}
+.ff_SimSun{font-family: SimSun ! important;}
+.fs_30{font-size: 30px;}
+.fs_18{font-size: 18px;}
+.fb{font-weight: bold;}
+.mt_20{margin-top: 20px;}
+.mt_40{margin-top: 40px;}
+.h_40{height:40px;}
+.br_20{border-radius: 20px;}
+.ft_l{float: left;}
+.ps_re{position: relative;}
+.ps_ab{position:absolute;}
+.ui-page-login,body {width: 100%;height: 100%;margin: 0px;padding: 0px;}
+.ui-page-login .bar{position: fixed;z-index: 10;right: 0;left: 0;height: 44px;background-color: #0062d0;padding-left: 30px;padding-right: 30px;}
+.ui-page-login .title{font-size: 15px;color: #ffffff;}
+.ui-page-login .title .mui-icon-closeempty{margin-top: 10px;float: left;}
+.ui-page-login .title .login{margin-top: 15px;float: right;}
+.ui-page-login .mui-content{height: 100%;background-color: #0062CC;padding:88px 30px 0 30px;}
+.ui-page-login .mui-content .oauth_btn{border: 0px solid #FFFFFF;width: 100%;}
+.ui-page-login .mui-content .mui-icon{font-size: 20px;left:15px;top:10px;}
