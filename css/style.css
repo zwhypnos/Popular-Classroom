@@ -4,6 +4,7 @@
 .fs_30{font-size: 30px;}
 .fs_18{font-size: 18px;}
 .fb{font-weight: bold;}
+.mt_10{margin-top: 10px;}
 .mt_20{margin-top: 20px;}
 .mt_40{margin-top: 40px;}
 .h_40{height:40px;}
@@ -17,5 +18,6 @@
 .ui-page-login .title .mui-icon-closeempty{margin-top: 10px;float: left;}
 .ui-page-login .title .login{margin-top: 15px;float: right;}
 .ui-page-login .mui-content{height: 100%;background-color: #0062CC;padding:88px 30px 0 30px;}
-.ui-page-login .mui-content .oauth_btn{border: 0px solid #FFFFFF;width: 100%;}
+.ui-page-login .mui-content .oauth_btn{border: 0px solid #FFFFFF;width: 100%;color:#0062CC;}
+.ui-page-login .mui-content .create_btn{border: 1px solid #FFFFFF;width: 100%;background-color: #0062CC;color: #FFFFFF;}
 .ui-page-login .mui-content .mui-icon{font-size: 20px;left:15px;top:10px;}
