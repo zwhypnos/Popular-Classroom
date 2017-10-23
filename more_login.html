@@ -13,12 +13,12 @@
 			<h1 class="title"><span id="close" class="mui-icon mui-icon-closeempty mui-action-back"></span></h1>
 		</header>
 		<div class="mui-content">
-			<button type="button" class="mui-btn oauth_btn mt_40 h_40 br_20 ps_re"><span class="mui-icon mui-icon-weixin ps_ab"></span><span class="ff_SimSun fs_18">微信</span></button>
-			<button type="button" class="mui-btn oauth_btn mt_15 h_40 br_20 ps_re"><span class="mui-icon mui-icon-weibo ps_ab"></span><span class="ff_SimSun fs_18">微博</span></button>
-			<button type="button" class="mui-btn oauth_btn mt_15 h_40 br_20 ps_re"><span class="mui-icon iconfont icon-alipay ps_ab"></span><span class="ff_SimSun fs_18">支付宝</span></button>
-			<button type="button" class="mui-btn oauth_btn mt_15 h_40 br_20 ps_re"><span class="mui-icon mui-icon-qq ps_ab"></span><span class="ff_SimSun fs_18">QQ</span></button>
-			<button type="button" class="mui-btn oauth_btn mt_15 h_40 br_20 ps_re"><span class="mui-icon iconfont icon-mi ps_ab"></span><span class="ff_SimSun fs_18">小米</span></button>
-			<button type="button" class="mui-btn create_btn mt_15 h_40 br_20 ps_re"><span class="ff_SimSun fs_18">创建账号</span></button>
+			<button id="weixin" type="button" class="mui-btn oauth_btn mt_40 h_40 br_20 ps_re"><span class="mui-icon mui-icon-weixin ps_ab"></span><span class="ff_SimSun fs_18">微信</span></button>
+			<button id="sinaweibo" type="button" class="mui-btn oauth_btn mt_15 h_40 br_20 ps_re"><span class="mui-icon mui-icon-weibo ps_ab"></span><span class="ff_SimSun fs_18">微博</span></button>
+			<button id="alipay" type="button" class="mui-btn oauth_btn mt_15 h_40 br_20 ps_re"><span class="mui-icon iconfont icon-alipay ps_ab"></span><span class="ff_SimSun fs_18">支付宝</span></button>
+			<button id="qq" type="button" class="mui-btn oauth_btn mt_15 h_40 br_20 ps_re"><span class="mui-icon mui-icon-qq ps_ab"></span><span class="ff_SimSun fs_18">QQ</span></button>
+			<button id="xiaomi" type="button" class="mui-btn oauth_btn mt_15 h_40 br_20 ps_re"><span class="mui-icon iconfont icon-mi ps_ab"></span><span class="ff_SimSun fs_18">小米</span></button>
+			<button   type="button" class="mui-btn create_btn mt_15 h_40 br_20 ps_re"><span class="ff_SimSun fs_18">创建账号</span></button>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/app.js"></script>
@@ -30,7 +30,7 @@
 				$.plusReady(function() {
 					plus.screen.lockOrientation("portrait-primary");
 					//第三方登录
-					var authBtns = ['weixin', 'sinaweibo', 'qq']; //配置业务支持的第三方登录
+					var authBtns = ['weixin', 'sinaweibo', 'qq', 'xiaomi']; //配置业务支持的第三方登录
 					var auths = {};
 					plus.oauth.getServices(function(services) {
 						for (var i in services) {
@@ -38,19 +38,32 @@
 								auths[service.id] = service;
 								if (~authBtns.indexOf(service.id)) {
 									var isInstalled = app.isInstalled(service.id);
-									
 									//var btn = document.createElement('div');
 									//如果微信未安装，则为不启用状态
 									//btn.setAttribute('class', 'oauth-btn' + (!isInstalled && service.id === 'weixin' ? (' disabled') : ''));
 									//btn.authId = service.id;
 								}
 						}
-						$().on('tap', '.oauth-btn', function() {
+						$(".mui-content").on('tap', '.oauth_btn', function() {
+							var auth = auths[this.id];
+							var waiting = plus.nativeUI.showWaiting();
+							auth.login(function() {
+								waiting.close();
+								plus.nativeUI.toast("登录认证成功");
+								auth.getUserInfo(function() {
+									plus.nativeUI.toast("获取用户信息成功");
+									var name = auth.userInfo.nickname || auth.userInfo.name;
+									app.createState(name, function() {
+										//toMain();
+									});
+								}, function(e) {
+									plus.nativeUI.toast("获取用户信息失败：" + e.message);
+								});
+							});
+						}, function(e) {
+							plus.nativeUI.toast("获取登录认证失败：" + e.message);
 						});
-					}, function(e) {
-						plus.nativeUI.toast("获取登录认证失败：" + e.message);
 					});
-					
 					$.back=function(e){
 						plus.webview.hide(plus.webview.currentWebview(),'slide-out-bottom');
 					};
