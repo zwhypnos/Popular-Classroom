@@ -104,7 +104,9 @@
 		"NativeObj": {
 			"description": "原生对象"
 		},
-		"OAuth": {}
+		"OAuth": {
+			"description": "登录授权"
+		}
 	},
 	"plus": {
 		"splashscreen": {
@@ -242,7 +244,23 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"css/style.css"
+					"css/style.css",
+					"images/login/logo_login.png"
+				],
+				"refer": [
+					"more_login.html"
+				],
+				"priority": 0
+			},
+			"more_login.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/app.js",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf"
 				],
 				"refer": [],
 				"priority": 0

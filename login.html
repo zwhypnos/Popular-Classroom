@@ -11,15 +11,17 @@
 
 	<body>
 		<header class="bar">
-			<h1 class="title"><span class="mui-icon mui-icon-closeempty"></span><span class="login">登录</span></h1>
+			<h1 class="title"><span id="close" class="mui-icon mui-icon-closeempty"></span><span class="login">登录</span></h1>
 		</header>
 		<div class="mui-content">
 			<div><img src="images/login/logo_login.png" /></div>
 			<div class="mt_20"><span class="fc_white ff_SimSun fs_30">欢迎来到大众课堂</span></div>
 			<button type="button" class="mui-btn oauth_btn mt_40 h_40 br_20 ps_re"><span class="mui-icon mui-icon-weixin ps_ab" style=""></span><span class="ff_SimSun fs_18">使用微信账号登录</span></button>
-			<button type="button" class="mui-btn create_btn mt_10 h_40 br_20 ps_re"><span class="ff_SimSun fs_18">创建账号</span></button>
+			<button type="button" class="mui-btn create_btn mt_15 h_40 br_20 ps_re"><span class="ff_SimSun fs_18">创建账号</span></button>
+			<div id="more" class="fc_white fs_16 mt_20">更多选项</div>
+			
 		</div>
-		
+		<footer class="provision fc_white fs_15">轻点“继续”、“创建账号”或“更多选项”即代表我同意大众课堂的<span>服务条款</span>、<span>支付服务条款</span>、<span>隐私政策</span>和<span>非歧视政策</span>。<span>了解更多</span></footer>
 		<script src="js/mui.min.js"></script>
 		<script>
 			(function($, doc) {
@@ -27,10 +29,47 @@
 					statusBarBackground: '#000000'
 				});
 				$.plusReady(function() {
-					
+					plus.screen.lockOrientation("portrait-primary");
+					var moreLoginPage = $.preload({
+						"id": 'more_login',
+						"url": 'more_login.html'
+					});
+					var closeButton = doc.getElementById('close');
+					closeButton.addEventListener('tap', function(event) {
+						plus.runtime.quit();
+					}, false);
+					var moreButton = doc.getElementById('more');
+					moreButton.addEventListener('tap', function(event) {
+						$.openWindow({
+							url: 'more_login.html',
+							id: 'more_login',
+							preload: true,
+							show: {
+								aniShow: 'slide-in-bottom'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					}, false);
+					var backButtonPress = 0;
+					$.back = function(event) {
+						backButtonPress++;
+						if (backButtonPress > 1) {
+							plus.runtime.quit();
+						} else {
+							plus.nativeUI.toast('再按一次退出应用');
+						}
+						setTimeout(function() {
+							backButtonPress = 0;
+						}, 1000);
+						return false;
+					};
 				});
 			}(mui, document));
 		</script>
 	</body>
-
 </html>
