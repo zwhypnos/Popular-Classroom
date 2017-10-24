@@ -4,7 +4,9 @@
 .fs_15{font-size: 15px;}
 .fs_16{font-size: 16px;}
 .fs_18{font-size: 18px;}
+.fs_20{font-size: 20px;}
 .fs_30{font-size: 30px;}
+.fs_40{font-size: 40px;}
 .fb{font-weight: bold;}
 .mt_15{margin-top: 15px;}
 .mt_20{margin-top: 20px;}
@@ -15,12 +17,15 @@
 .ft_l{float: left;}
 .ps_re{position: relative;}
 .ps_ab{position:absolute;}
+.material-design {position: relative;}
+.material-design canvas {opacity: 0.25;position: absolute;top: 0;left: 0;}
+.mui-btn{overflow:hidden;}
 .ui-page-login,body {width: 100%;height: 100%;margin: 0px;padding: 0px;}
-.ui-page-login .bar{position: fixed;z-index: 10;right: 0;left: 0;height: 44px;background-color: #0062d0;padding-left: 30px;padding-right: 30px;}
-.ui-page-login .title{font-size: 15px;color: #ffffff;}
-.ui-page-login .title .mui-icon-closeempty{margin-top: 5px;float: left;font-size: 35px;}
+.bar{position: fixed;z-index: 10;right: 0;left: 0;height: 44px;background-color: #0062d0;padding-left: 30px;padding-right: 30px;}
+.title{font-size: 15px;color: #ffffff;}
+.title .mui-icon-closeempty{margin-top: 5px;float: left;font-size: 35px;}
 .ui-page-login .title .login{margin-top: 15px;float: right;}
-.ui-page-login .mui-content{height: 100%;background-color: #0062CC;padding:88px 30px 0 30px;}
+.mui-content{height: 100%;background-color: #0062CC;padding:88px 30px 0 30px;}
 .ui-page-login .mui-content .oauth_btn{border: 0px solid #FFFFFF;width: 100%;color:#0062CC;}
 .ui-page-login .mui-content .create_btn{border: 1px solid #FFFFFF;width: 100%;background-color: #0062CC;color: #FFFFFF;}
 .ui-page-login .mui-content .mui-icon{font-size: 20px;left:15px;top:10px;}
@@ -28,10 +33,12 @@
 .ui-page-login .provision span{text-decoration:underline;}
 
 .ui-page-more-login ,body {width: 100%;height: 100%;margin: 0px;padding: 0px;}
-.ui-page-more-login .bar{position: fixed;z-index: 10;right: 0;left: 0;height: 44px;background-color: #0062d0;padding-left: 30px;padding-right: 30px;}
-.ui-page-more-login .title{color: #ffffff;}
-.ui-page-more-login .title .mui-icon-closeempty{margin-top: 5px;float: left;font-size: 35px;}
-.ui-page-more-login .mui-content{height: 100%;background-color: #0062CC;padding:88px 30px 0 30px;}
+.ui-page-more-login .mui-content{padding-top:44px;}
 .ui-page-more-login .mui-content .oauth_btn{border: 0px solid #FFFFFF;width: 100%;color:#0062CC;}
 .ui-page-more-login .mui-content .create_btn{border: 1px solid #FFFFFF;width: 100%;background-color: #0062CC;color: #FFFFFF;}
 .ui-page-more-login .mui-content .mui-icon{font-size: 20px;left:15px;top:10px;}
+
+.ui-page-reg-name ,body {width: 100%;height: 100%;margin: 0px;padding: 0px;}
+.title .icon-back{margin-top: 12px;float: left;font-size: 20px;}
+.ui-page-reg-name .mui-content{padding-top:66px;}
+.ui-page-reg-name .mui-content input{background-color: inherit;border-width: 0;}

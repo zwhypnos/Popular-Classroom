@@ -245,7 +245,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"css/style.css",
-					"images/login/logo_login.png"
+					"images/login/logo_login.png",
+					"js/design.js"
 				],
 				"refer": [
 					"more_login.html"
@@ -260,7 +261,8 @@
 					"css/style.css",
 					"js/app.js",
 					"css/iconfont.css",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"js/design.js"
 				],
 				"refer": [],
 				"priority": 0

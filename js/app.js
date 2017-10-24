@@ -49,24 +49,16 @@
 			var packageManager = main.getPackageManager();
 			var PackageManager = plus.android.importClass(packageManager)
 			var packageName = {
-				"qq": "com.tencent.mobileqq",
-				"weixin": "com.tencent.mm",
-				"sinaweibo": "com.sina.weibo"
+				"weixin": "com.tencent.mm"
 			}
 			try {
 				return packageManager.getPackageInfo(packageName[id], PackageManager.GET_ACTIVITIES);
 			} catch (e) {}
 		} else {
 			switch (id) {
-				case "qq":
-					var TencentOAuth = plus.ios.import("TencentOAuth");
-					return TencentOAuth.iphoneQQInstalled();
 				case "weixin":
 					var WXApi = plus.ios.import("WXApi");
-					return WXApi.isWXAppInstalled()
-				case "sinaweibo":
-					var SinaAPI = plus.ios.import("WeiboSDK");
-					return SinaAPI.isWeiboAppInstalled()
+					return WXApi.isWXAppInstalled();
 				default:
 					break;
 			}
