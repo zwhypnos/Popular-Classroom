@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="ui-page-login">
+<html class="ui-page-login ff_SimSun">
 
 	<head>
 		<meta charset="UTF-8">
@@ -15,11 +15,10 @@
 		</header>
 		<div class="mui-content">
 			<div><img src="images/login/logo_login.png" /></div>
-			<div class="mt_20"><span class="fc_white ff_SimSun fs_30">欢迎来到大众课堂</span></div>
-			<button type="button" class="mui-btn oauth_btn mt_40 h_40 br_20 ps_re material-design" data-color="#000000"><span class="mui-icon mui-icon-weixin ps_ab" style=""></span><span class="ff_SimSun fs_18">使用微信账号登录</span></button>
-			<button type="button" class="mui-btn create_btn mt_15 h_40 br_20 ps_re material-design" data-color="#ffffff"><span class="ff_SimSun fs_18">创建账号</span></button>
+			<div class="mt_20"><span class="fc_white fs_30">欢迎来到大众课堂</span></div>
+			<button type="button" class="mui-btn oauth_btn mt_40 h_40 br_20 ps_re material-design" data-color="#000000"><span class="mui-icon mui-icon-weixin ps_ab" style=""></span><span class="fs_18">使用微信账号登录</span></button>
+			<button id="create" type="button" class="mui-btn create_btn mt_15 h_40 br_20 ps_re material-design" data-color="#ffffff"><span class="fs_18">创建账号</span></button>
 			<div id="more" class="fc_white fs_16 mt_20">更多选项</div>
-			
 		</div>
 		<footer class="provision fc_white fs_15">轻点“继续”、“创建账号”或“更多选项”即代表我同意大众课堂的<span>服务条款</span>、<span>支付服务条款</span>、<span>隐私政策</span>和<span>非歧视政策</span>。<span>了解更多</span></footer>
 		<script src="js/design.js"></script>
@@ -31,14 +30,27 @@
 				});
 				$.plusReady(function() {
 					plus.screen.lockOrientation("portrait-primary");
+					var createButton = doc.getElementById('create');
+					createButton.addEventListener('tap',function(event){
+						$.openWindow({
+							url: 'reg_name.html',
+							id: 'reg_name',
+							preload: true,
+							show: {
+								aniShow: 'slide-in-right'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					});
 					var moreLoginPage = $.preload({
 						"id": 'more_login',
 						"url": 'more_login.html'
 					});
-					var closeButton = doc.getElementById('close');
-					closeButton.addEventListener('tap', function(event) {
-						plus.runtime.quit();
-					}, false);
 					var moreButton = doc.getElementById('more');
 					moreButton.addEventListener('tap', function(event) {
 						$.openWindow({
@@ -55,6 +67,10 @@
 								autoShow: false
 							}
 						});
+					}, false);
+					var closeButton = doc.getElementById('close');
+					closeButton.addEventListener('tap', function(event) {
+						plus.runtime.quit();
 					}, false);
 					var backButtonPress = 0;
 					$.back = function(event) {

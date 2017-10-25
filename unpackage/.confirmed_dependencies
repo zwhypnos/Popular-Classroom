@@ -18,7 +18,8 @@
 			"js/design.js"
 		],
 		"refer": [
-			"more_login.html"
+			"more_login.html",
+			"reg_name.html"
 		]
 	},
 	"more_login.html": {
@@ -33,5 +34,14 @@
 			"js/design.js"
 		],
 		"refer": []
+	},
+	"reg_name.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.ttf"
+		]
 	}
 }

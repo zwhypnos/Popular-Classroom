@@ -41,4 +41,6 @@
 .ui-page-reg-name ,body {width: 100%;height: 100%;margin: 0px;padding: 0px;}
 .title .icon-back{margin-top: 12px;float: left;font-size: 20px;}
 .ui-page-reg-name .mui-content{padding-top:66px;}
-.ui-page-reg-name .mui-content input{background-color: inherit;border-width: 0;}
+.ui-page-reg-name .mui-content input{background-color: inherit;border-width: 0;border-bottom: 2px solid #FFFFFF;padding:10px 0;}
+.ui-page-reg-name footer{position: fixed;z-index: 10;right: 0;left: 0;bottom: 15px;padding-right: 30px;text-align: right;}
+.ui-page-reg-name footer .next{color:#67aefb;}

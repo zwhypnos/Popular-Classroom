@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="ui-page-reg-name ff_SimSun">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="bar">
+			<h1 class="title"><span class="mui-icon iconfont icon-back mui-action-back"></span></h1>
+		</header>
+		<div class="mui-content">
+			<div class="fc_white fs_40">您的名字是？</div>
+			<div class="fc_white fs_20 mt_40">姓氏</div>
+			<div><input id="surname" class="fc_white fs_30 mt_15" type="text"/></div>
+			<div class="fc_white fs_20 mt_15">名字</div>
+			<div><input id="name" class="fc_white fs_30 mt_15" type="text"/></div>
+		</div>
+		<footer><a id="next" class="next">下一步<span class="mui-icon iconfont icon-next"></span></a></footer>
+		<script src="js/mui.min.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#000000'
+				});
+				$.plusReady(function() {
+					plus.screen.lockOrientation("portrait-primary");
+					var inputs = ['surname','name'];
+					for(var i in inputs){
+						var input = inputs[i];
+						doc.getElementById(input).addEventListener('input',function(e){
+						var surname = doc.getElementById("surname").value;
+						var name = doc.getElementById("name").value;
+						if(surname!=''&&name!=''){
+							doc.getElementById('next').style.color = '#FFFFFF';
+						}else{
+							doc.getElementById('next').style.color = '#67aefb';
+						}
+					});
+					}
+					$(".next").on('tap', '.next', function() {
+						if(this.style.color != '#FFFFFF'){
+							return;
+						}else{
+							console.log('next');
+						}
+					});
+					$.back=function(e){
+						plus.webview.hide(plus.webview.currentWebview(),'slide-out-right');
+					};
+				});
+			}(mui, document));
+		</script>
+	</body>
+</html>
