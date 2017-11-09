@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="ui-page-agreement ff_SimSun">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"  />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="fc_black fs_40 ">使用大众课堂服务之前</div>
+			<div class="fc_black fs_20 mt_6">不论您是否首次使用大众课堂，请承诺尊重和接纳大众课堂社区的每一位成员。<span id="showmore">了解更多</span></div>
+			<div class="fc_black fs_20 mt_40">不论对方的种族、宗教、国籍、民族、残障状况、性别、性别认同、性取向或年龄，我们都同意相互尊重，不对他人妄加评断，也不会怀有偏见。</div>
+			<div><button id="agree" type="button" class="mui-btn agree mt_15 h_40 br_20">接受</button></div>
+			<div><button id="refuse" type="button" class="mui-btn refuse mt_15 h_40 br_20">拒绝</button></div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#000000'
+				});
+				$.plusReady(function() {
+					plus.screen.lockOrientation("portrait-primary");
+					doc.getElementById('showmore').addEventListener('tap',function(e){
+						$.openWindow({
+								url:'about_agree.html',
+								id:'about_agree',
+								preload: true,
+								show: {
+									aniShow: 'slide-in-right'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+						});
+					});
+					doc.getElementById('refuse').addEventListener('tap',function(e){
+						$.openWindow({
+								url:'cancle_reg.html',
+								id:'cancle_reg',
+								preload: true,
+								show: {
+									aniShow: 'slide-in-right'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+						});
+					});
+					$.back=function(e){
+						plus.webview.hide(plus.webview.currentWebview(),'slide-out-right');
+					};
+				});
+			}(mui, document));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="ui-page-reg-pwd ff_SimSun">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"  />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="bar">
+			<h1 class="title"><span class="mui-icon iconfont icon-back mui-action-back"></span></h1>
+		</header>
+		<div class="mui-content">
+			<div class="fc_white fs_40 ">创建密码</div>
+			<div class="fc_white fs_20 mt_15">密码必须包含字母数字和特殊字符，且长度至少为8个字符。</div>
+			<div id="control" class="fc_white fs_15 mt_40 "><span class="ft_l">密码</span><span id="show" class="ft_r switch">显示</span><span id="hide" class="ft_r switch mui-hidden">隐藏</span></div>
+			<div ><input id="pwd" class="fc_white fs_30 mt_15" type="password"/></div>
+		</div>
+		<footer id="footer">
+			<a id="next" class="next">下一步<span class="mui-icon iconfont icon-next"></span></a>
+		</footer>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#000000'
+				});
+				$.plusReady(function() {
+					doc.getElementById('footer').style.top = doc.documentElement.clientHeight - 60+'px';
+					plus.screen.lockOrientation("portrait-primary");
+					
+					doc.getElementById('pwd').addEventListener('input',function(e){
+						var reg = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[_\-@&=#~`!\$%\^\*\(\)\+\{\}\[\]\|\\:;"',\.<>\?/])[a-z0-9_\-@&=#~`!\$%\^\*\(\)\+\{\}\[\]\|\\:;"',\.<>\?/]{8,}$/;
+						var pwd = doc.getElementById('pwd').value;
+						if(reg.test(pwd)){
+							doc.getElementById('next').style.color = '#FFFFFF';
+						}else{
+							doc.getElementById('next').style.color = '#67aefb';
+						}
+					});
+					$("#control").on('tap', '.switch', function() {
+						var type = doc.getElementById('pwd').type;
+						if(type=='password'){
+							doc.getElementById('pwd').type = 'text';
+							doc.getElementById('show').classList.add('mui-hidden');
+							doc.getElementById('hide').classList.remove('mui-hidden');
+						}else{
+							doc.getElementById('pwd').type = 'password';
+							doc.getElementById('show').classList.remove('mui-hidden');
+							doc.getElementById('hide').classList.add('mui-hidden');
+						}
+					});
+					$("footer").on('tap', '.next', function() {
+						if(this.style.color != 'rgb(255, 255, 255)'){
+							return;
+						}else{
+							$.openWindow({
+								url:'agreement.html',
+								id:'agreement',
+								preload: true,
+								show: {
+									aniShow: 'slide-in-right'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: true
+								}
+							});
+						}
+					});
+					$.back=function(e){
+						plus.webview.hide(plus.webview.currentWebview(),'slide-out-right');
+					};
+				});
+			}(mui, document));
+			window.onload=app.getInput();
+			function changeEnter(obj){ 
+				if(event.keyCode==13){
+					document.activeElement.blur();
+				}
+			}
+		</script>
+	</body>
+</html>

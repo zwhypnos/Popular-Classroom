@@ -41,8 +41,8 @@
 		return JSON.parse(settingsText);
 	};
 	/**
-		 * 获取本地是否安装客户端
-		 **/
+	 * 获取本地是否安装客户端
+	 **/
 	owner.isInstalled = function(id) {
 		if (mui.os.android) {
 			var main = plus.android.runtimeMainActivity();
@@ -65,4 +65,38 @@
 		}
 	};
 	
+	/**
+	 * 获取页面input元素，并将焦点设置在第一个
+	 **/
+	owner.getInput = function(){
+		var list = new Array(); 
+		for(var i=0;i<document.all.length-1;i++) 
+		{ 
+			if(document.all[i].type=="text"||document.all[i].type=="password") 
+				list.push(i); 
+		} 
+		
+		for(var i=0;i<list.length-1;i++) 
+		{ 
+			if(i<list.length-1){
+				document.all[list[i]].setAttribute("nextFocusIndex",list[i+1]);
+			}
+		} 
+		document.all[list[0]].focus(); 
+	}
+	
+	/**
+	 * 按下enter键后光标直接定位到下一个input
+	 **/
+	owner.changeEnter = function(obj){
+		if(event.keyCode==13){
+	    	var nextFocusIndex=obj.getAttribute("nextFocusIndex"); 
+	    	if(nextFocusIndex!=null&&nextFocusIndex!=''){
+	    		document.all[nextFocusIndex].focus(); 
+	    	}else{
+	    		//关闭软键盘
+	    		document.activeElement.blur();
+	    	}
+	    }
+	}
 }(mui, window.app = {}));

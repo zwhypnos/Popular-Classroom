@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="ui-page-agreement ff_SimSun">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"  />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="bar">
+			<h1 class="title"><span class="mui-icon iconfont icon-back mui-action-back"></span></h1>
+		</header>
+		<div class="mui-content">
+			<div class="fc_black fs_40 ">取消注册？</div>
+			<div class="fc_black fs_20 mt_6">拒绝此项承诺意味着您将无法拥有大众课堂账号。</div>
+			<div class="fc_black fs_20 mt_40">不论对方的种族、宗教、国籍、民族、残障状况、性别、性别认同、性取向或年龄，我们都同意相互尊重，不对他人妄加评断，也不会怀有偏见。</div>
+			<div><button id="cancle" type="button" class="mui-btn agree mt_15 h_40 br_20">取消注册</button></div>
+			<div><button type="button" class="mui-btn refuse mt_15 h_40 br_20 mui-action-back">返回</button></div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#000000'
+				});
+				$.plusReady(function() {
+					plus.screen.lockOrientation("portrait-primary");
+					doc.getElementById('cancle').addEventListener('tap',function(e){
+						$.openWindow({
+								url:'feedback.html',
+								id:'feedback',
+								preload: true,
+								show: {
+									aniShow: 'slide-in-right'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: true
+								}
+						});
+					});
+					$.back=function(e){
+						plus.webview.hide(plus.webview.currentWebview(),'slide-out-right');
+					};
+				});
+			}(mui, document));
+		</script>
+	</body>
+</html>

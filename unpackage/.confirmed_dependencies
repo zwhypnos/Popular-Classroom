@@ -15,11 +15,13 @@
 			"css/mui.min.css",
 			"css/style.css",
 			"images/login/logo_login.png",
-			"js/design.js"
+			"js/design.js",
+			"js/app.js"
 		],
 		"refer": [
 			"more_login.html",
-			"reg_name.html"
+			"reg_name.html",
+			"reg.html"
 		]
 	},
 	"more_login.html": {
@@ -41,7 +43,131 @@
 			"css/iconfont.css",
 			"css/mui.min.css",
 			"css/style.css",
+			"fonts/iconfont.ttf",
+			"js/app.js"
+		],
+		"refer": [
+			"reg_phone.html",
+			"login.html"
+		]
+	},
+	"reg_phone.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.ttf",
+			"js/app.js"
+		],
+		"refer": [
+			"reg_name.html",
+			"reg_pwd.html"
+		]
+	},
+	"reg.html": {
+		"resources": [
+			"reg_name.html",
+			"fonts/iconfont.ttf",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"reg_phone.html",
+			"js/app.js"
+		],
+		"refer": [
+			"reg_name.html",
+			"reg_phone.html"
+		]
+	},
+	"reg_pwd.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
 			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"agreement.html"
+		]
+	},
+	"agreement.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"about_agree.html",
+			"cancle_reg.html"
+		]
+	},
+	"about_agree.html": {
+		"resources": [
+			"fonts/iconfont.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		]
+	},
+	"cancle_reg.html": {
+		"resources": [
+			"fonts/iconfont.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": [
+			"feedback.html"
+		]
+	},
+	"feedback.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": [
+			"feedback_content.html",
+			"cancled.html"
+		]
+	},
+	"feedback_content.html": {
+		"resources": [
+			"fonts/iconfont.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": [
+			"cancled.html"
+		]
+	},
+	"cancled.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": [
+			"login.html"
 		]
 	}
 }

@@ -246,11 +246,13 @@
 					"css/mui.min.css",
 					"css/style.css",
 					"images/login/logo_login.png",
-					"js/design.js"
+					"js/design.js",
+					"js/app.js"
 				],
 				"refer": [
 					"more_login.html",
-					"reg_name.html"
+					"reg_name.html",
+					"reg.html"
 				],
 				"priority": 0
 			},
@@ -274,9 +276,139 @@
 					"css/iconfont.css",
 					"css/mui.min.css",
 					"css/style.css",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"js/app.js"
+				],
+				"refer": [
+					"reg_phone.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"reg_phone.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"fonts/iconfont.ttf",
+					"js/app.js"
+				],
+				"refer": [
+					"reg_name.html",
+					"reg_pwd.html"
+				],
+				"priority": 0
+			},
+			"reg.html": {
+				"resources": [
+					"reg_name.html",
+					"fonts/iconfont.ttf",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"reg_phone.html",
+					"js/app.js"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"reg_pwd.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [
+					"agreement.html"
+				],
+				"priority": 0
+			},
+			"agreement.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [
+					"about_agree.html",
+					"cancle_reg.html"
+				],
+				"priority": 0
+			},
+			"about_agree.html": {
+				"resources": [
+					"fonts/iconfont.ttf",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"cancle_reg.html": {
+				"resources": [
+					"fonts/iconfont.ttf",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"feedback.html"
+				],
+				"priority": 0
+			},
+			"feedback.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"feedback_content.html",
+					"cancled.html"
+				],
+				"priority": 0
+			},
+			"feedback_content.html": {
+				"resources": [
+					"fonts/iconfont.ttf",
+					"js/app.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"cancled.html"
+				],
+				"priority": 0
+			},
+			"cancled.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"login.html"
+				],
 				"priority": 0
 			}
 		},

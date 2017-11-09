@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="ui-page-agreement ff_SimSun">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"  />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="bar">
+			<h1 class="title"><span class="mui-icon mui-icon-closeempty mui-action-back"></span></h1>
+		</header>
+		<div class="mui-content">
+			<div class="fc_black fs_40 ">注册流程已取消</div>
+			<div class="fc_black fs_20 mt_6">欢迎您提供反馈，告诉我们您拒绝的原因。</div>
+			<div id="feedback" class="feedback fs_20 mt_40">输入反馈</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#000000'
+				});
+				$.plusReady(function() {
+					plus.screen.lockOrientation("portrait-primary");
+					doc.getElementById('feedback').addEventListener('tap',function(e){
+						$.openWindow({
+								url:'feedback_content.html',
+								id:'feedback_content',
+								preload: true,
+								show: {
+									aniShow: 'slide-in-right'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+						});
+					});
+					$.back=function(e){
+						$.openWindow({
+								url:'cancled.html',
+								id:'cancled',
+								preload: true,
+								show: {
+									aniShow: 'slide-in-left'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+						});
+						plus.webview.hide(plus.webview.currentWebview(),'slide-out-right');
+						
+					};
+				});
+			}(mui, document));
+		</script>
+	</body>
+</html>

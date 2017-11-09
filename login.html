@@ -30,21 +30,25 @@
 				});
 				$.plusReady(function() {
 					plus.screen.lockOrientation("portrait-primary");
+					var regNamePage = $.preload({
+						"id": 'reg_name',
+						"url": 'reg_name.html'
+					});
 					var createButton = doc.getElementById('create');
 					createButton.addEventListener('tap',function(event){
 						$.openWindow({
-							url: 'reg_name.html',
-							id: 'reg_name',
+							url:'reg_name.html',
+							id:'reg_name',
 							preload: true,
-							show: {
-								aniShow: 'slide-in-right'
-							},
-							styles: {
-								popGesture: 'hide'
-							},
-							waiting: {
-								autoShow: false
-							}
+								show: {
+									aniShow: 'slide-in-right'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
 						});
 					});
 					var moreLoginPage = $.preload({

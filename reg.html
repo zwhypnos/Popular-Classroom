@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="ui-page-reg ff_SimSun">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="bar">
+			<h1 class="title"><span class="mui-icon iconfont icon-back mui-action-back"></span></h1>
+		</header>
+		<div class="mui-content">
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init();
+				var subpages = app.regSubpages;
+				var subpage_style = {
+					top: '44px',
+					bottom: '0px'
+				};
+				var aniShow = {};
+				$.plusReady(function() {
+					var self = plus.webview.currentWebview();
+					for (var i = 0; i < 2; i++) {
+						var temp = {};
+						var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+						if (i > 0) {
+							sub.hide();
+						}else{
+							temp[subpages[i]] = "true";
+							$.extend(aniShow,temp);
+						}
+						self.append(sub);
+					}
+					app.setRegState(0);
+					plus.webview.show(subpages[0]);
+				});
+				$.back=function(e){
+					var subpage = app.getRegState();
+					if(subpage==0){
+						plus.webview.hide(plus.webview.currentWebview(),'slide-out-right');
+					}else{
+						app.setRegState(subpage-1);
+						plus.webview.show(app.regSubpages[subpage-1],'slide-in-right');
+						plus.webview.hide(app.regSubpages[subpage],'slide-out-left');
+					}
+					
+				};
+			}(mui,document));
+		</script>
+	</body>
+</html>

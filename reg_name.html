@@ -13,39 +13,55 @@
 			<h1 class="title"><span class="mui-icon iconfont icon-back mui-action-back"></span></h1>
 		</header>
 		<div class="mui-content">
-			<div class="fc_white fs_40">您的名字是？</div>
+			<div class="fc_white fs_40">您的姓名是？</div>
 			<div class="fc_white fs_20 mt_40">姓氏</div>
-			<div><input id="surname" class="fc_white fs_30 mt_15" type="text"/></div>
+			<div><input id="surname" class="fc_white fs_30 mt_15" type="text" onkeydown="javascript:changeEnter(this);"/></div>
 			<div class="fc_white fs_20 mt_15">名字</div>
-			<div><input id="name" class="fc_white fs_30 mt_15" type="text"/></div>
+			<div><input id="name" class="fc_white fs_30 mt_15" type="text" onkeydown="javascript:changeEnter(this);"/></div>
 		</div>
-		<footer><a id="next" class="next">下一步<span class="mui-icon iconfont icon-next"></span></a></footer>
+		<footer id="footer"><a id="next" class="next">下一步<span class="mui-icon iconfont icon-next"></span></a></footer>
 		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
 		<script>
 			(function($, doc) {
 				$.init({
 					statusBarBackground: '#000000'
 				});
 				$.plusReady(function() {
+					doc.getElementById('footer').style.top = doc.documentElement.clientHeight - 60+'px';
 					plus.screen.lockOrientation("portrait-primary");
 					var inputs = ['surname','name'];
 					for(var i in inputs){
 						var input = inputs[i];
 						doc.getElementById(input).addEventListener('input',function(e){
-						var surname = doc.getElementById("surname").value;
-						var name = doc.getElementById("name").value;
-						if(surname!=''&&name!=''){
-							doc.getElementById('next').style.color = '#FFFFFF';
-						}else{
-							doc.getElementById('next').style.color = '#67aefb';
-						}
-					});
+							var surname = doc.getElementById("surname").value;
+							var name = doc.getElementById("name").value;
+							if(surname!=''&&name!=''){
+								doc.getElementById('next').style.color = '#FFFFFF';
+							}else{
+								doc.getElementById('next').style.color = '#67aefb';
+							}
+						});
 					}
-					$(".next").on('tap', '.next', function() {
-						if(this.style.color != '#FFFFFF'){
+					$("footer").on('tap', '.next', function() {
+						if(this.style.color != 'rgb(255, 255, 255)'){
 							return;
 						}else{
-							console.log('next');
+							//plus.webview.hide(plus.webview.currentWebview(),'slide-out-left');
+							$.openWindow({
+								url:'reg_phone.html',
+								id:'reg_phone',
+								preload: true,
+								show: {
+									aniShow: 'slide-in-right'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
 						}
 					});
 					$.back=function(e){
@@ -53,6 +69,11 @@
 					};
 				});
 			}(mui, document));
+			
+			window.onload=app.getInput();
+			function changeEnter(obj){ 
+			    app.changeEnter(obj);
+			}
 		</script>
 	</body>
 </html>
