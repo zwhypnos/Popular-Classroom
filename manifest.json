@@ -252,7 +252,8 @@
 				"refer": [
 					"more_login.html",
 					"reg_name.html",
-					"reg.html"
+					"reg.html",
+					"tologin.html"
 				],
 				"priority": 0
 			},
@@ -409,6 +410,18 @@
 				"refer": [
 					"login.html"
 				],
+				"priority": 0
+			},
+			"tologin.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

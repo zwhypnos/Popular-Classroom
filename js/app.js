@@ -89,10 +89,16 @@
 	 * 按下enter键后光标直接定位到下一个input
 	 **/
 	owner.changeEnter = function(obj){
+		
 		if(event.keyCode==13){
 	    	var nextFocusIndex=obj.getAttribute("nextFocusIndex"); 
 	    	if(nextFocusIndex!=null&&nextFocusIndex!=''){
-	    		document.all[nextFocusIndex].focus(); 
+	    		if(document.all[nextFocusIndex].classList.contains('mui-hidden')){
+	    			console.log(nextFocusIndex);
+	    			owner.changeEnter(document.all[nextFocusIndex]);
+	    		}else{
+	    			document.all[nextFocusIndex].focus(); 
+	    		}
 	    	}else{
 	    		//关闭软键盘
 	    		document.activeElement.blur();

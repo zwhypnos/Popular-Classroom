@@ -1,9 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html class="ui-page-tologin ff_SimSun">
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"  />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
 	</head>
 	<body>
+		<header class="bar">
+			<h1 class="title"><span class="mui-icon iconfont icon-back mui-action-back"></span><span class="forget">忘记密码？</span></h1>
+		</header>
+		<div class="mui-content">
+			<div class="fc_white fs_40">登录</div>
+			<div id="phone1" class="fc_white fs_20 mt_40">电话</div>
+			<div id="phone2" class="ps_re"><button type="button" class="mui-btn ps_ab">+86</button><input id="phone" class="fc_white fs_30 mt_15" type="text" onkeydown="javascript:changeEnter(this);"/></div>
+			<div id="email1" class="fc_white fs_20 mt_40 mui-hidden">电子邮件地址</div>
+			<div id="email2" class="mui-hidden"><input id="email" class="fc_white fs_30 mt_15" type="text" onkeydown="javascript:changeEnter(this);"/></div>
+			<div id="control" class="fc_white fs_20 mt_15 "><span class="ft_l">密码</span><span id="show" class="ft_r switch">显示</span><span id="hide" class="ft_r switch mui-hidden">隐藏</span></div>
+			<div ><input id="pwd" class="fc_white fs_30 mt_15" type="password"/></div>
+		</div>
+		<footer id="footer">
+			<button id="phone3" type="button" class="mui-btn email h_30 br_15 fs_15 lh_15">使用邮箱</button>
+			<button id="email3" type="button" class="mui-btn email h_30 br_15 fs_15 lh_15 mui-hidden">使用手机号</button>
+			<a id="next" class="next">下一步<span class="mui-icon iconfont icon-next"></span></a>
+		</footer>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#000000'
+				});
+				$.plusReady(function() {
+					doc.getElementById('footer').style.top = doc.documentElement.clientHeight - 60+'px';
+					plus.screen.lockOrientation("portrait-primary");
+					doc.getElementById('phone3').addEventListener('tap',function(e){
+							for(var i=1;i<=3;i++){
+								doc.getElementById('phone'+i).classList.add('mui-hidden');
+								doc.getElementById('email'+i).classList.remove('mui-hidden');
+							}
+							doc.getElementById('phone').value = '';
+							doc.getElementById('email').value = '';
+							doc.getElementById('next').style.color = '#67aefb';
+					});
+					doc.getElementById('email3').addEventListener('tap',function(e){
+							for(var i=1;i<=3;i++){
+								doc.getElementById('email'+i).classList.add('mui-hidden');
+								doc.getElementById('phone'+i).classList.remove('mui-hidden');
+							}
+							doc.getElementById('phone').value = '';
+							doc.getElementById('email').value = '';
+							doc.getElementById('next').style.color = '#67aefb';
+					});
+					doc.getElementById('phone3').addEventListener('input',function(e){
+						var reg = /^1[34578]\d{9}$/;
+						var phone = doc.getElementById('phone').value;
+						if(reg.test(phone)){
+							doc.getElementById('next').style.color = '#FFFFFF';
+						}else{
+							doc.getElementById('next').style.color = '#67aefb';
+						}
+					});
+					doc.getElementById('email3').addEventListener('input',function(e){
+						var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+						var email = doc.getElementById('email').value;
+						if(reg.test(email)){
+							doc.getElementById('next').style.color = '#FFFFFF';
+						}else{
+							doc.getElementById('next').style.color = '#67aefb';
+						}
+					});
+					$("#control").on('tap', '.switch', function() {
+						var type = doc.getElementById('pwd').type;
+						if(type=='password'){
+							doc.getElementById('pwd').type = 'text';
+							doc.getElementById('show').classList.add('mui-hidden');
+							doc.getElementById('hide').classList.remove('mui-hidden');
+						}else{
+							doc.getElementById('pwd').type = 'password';
+							doc.getElementById('show').classList.remove('mui-hidden');
+							doc.getElementById('hide').classList.add('mui-hidden');
+						}
+					});
+					$("footer").on('tap', '.next', function() {
+						if(this.style.color != 'rgb(255, 255, 255)'){
+							return;
+						}else{
+							$.openWindow({
+								url:'reg_pwd.html',
+								id:'reg_pwd',
+								preload: true,
+								show: {
+									aniShow: 'slide-in-right'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+						}
+					});
+					$.back=function(e){
+						plus.webview.hide(plus.webview.currentWebview(),'slide-out-right');
+					};
+				});
+			}(mui, document));
+			window.onload=app.getInput();
+			function changeEnter(obj){ 
+				app.changeEnter(obj);
+			}
+		</script>
 	</body>
 </html>

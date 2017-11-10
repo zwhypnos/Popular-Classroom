@@ -11,7 +11,7 @@
 
 	<body>
 		<header class="bar">
-			<h1 class="title"><span id="close" class="mui-icon mui-icon-closeempty"></span><span class="login">登录</span></h1>
+			<h1 class="title"><span id="close" class="mui-icon mui-icon-closeempty"></span><span id="login" class="login">登录</span></h1>
 		</header>
 		<div class="mui-content">
 			<div><img src="images/login/logo_login.png" /></div>
@@ -76,6 +76,22 @@
 					closeButton.addEventListener('tap', function(event) {
 						plus.runtime.quit();
 					}, false);
+					doc.getElementById('login').addEventListener('tap',function(event){
+						$.openWindow({
+							url: 'tologin.html',
+							id: 'tologin',
+							preload: true,
+							show: {
+								aniShow: 'slide-in-right'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					});
 					var backButtonPress = 0;
 					$.back = function(event) {
 						backButtonPress++;
